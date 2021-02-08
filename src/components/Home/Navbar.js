@@ -3,10 +3,10 @@ import { Link } from "@reach/router"
 
 export default function Navbar() {
     return (
-        <div>
-            <Link to="/">Home</Link>
-            <Link to="/articles">Articles</Link>
-            <Link to="/topics/:topics">Topics</Link>
+        <div id="navigation">
+            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link" to="/articles">Articles</Link>
+            <Link className="nav-link" to="/topics/:topics">Topics</Link>
         </div>
     )
 }

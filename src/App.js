@@ -1,17 +1,20 @@
 import './App.css';
 import { Router } from "@reach/router"
 import Homepage from "./components/Home/Homepage"
-import NestedRouter from "./components/NestedRouter"
 import Navbar from './components/Home/Navbar'
+import ArticleList from "./components/Articles/ArticlesList";
+import ArticlePage from "./components/Articles/ArticlePage";
+import TopicPage from "./components/Topics/TopicPage"
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
       <Navbar />
       <Router>
         <Homepage path="/" />
-        <NestedRouter path="/*" />
+        <ArticleList path= "/articles" />
+        <ArticlePage path= "/articles/:article_title" />
+        <TopicPage path="/topics/:topic" />
       </Router>
     </div>
   );
