@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import axios from "axios";
 import { Link } from "@reach/router"
+import CommentsSection from "../Comments/CommentsSection"
 
 export default class ArticlePage extends Component {
     state = {
@@ -18,7 +19,10 @@ export default class ArticlePage extends Component {
     
     render() {
         return (
-            this.state.isLoading ? <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
+            this.state.isLoading 
+            ? 
+            <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> 
+            :
             <div class="display-article">
                 <h1>{this.state.article.title}</h1>
                 <p>{this.state.article.body}</p>
@@ -27,7 +31,10 @@ export default class ArticlePage extends Component {
                     <li>Comments Number: {this.state.article.comments_count}</li>
                     <li>Topic: <Link to={`/topics/${this.state.article.topic}`}>{this.state.article.topic}</Link></li>
                     <li>Date: {this.state.article.created_at}</li>
-                </ul>           
+                </ul>
+                <div>
+                    <CommentsSection article_id={this.state.article.article_id}/>
+                </div>           
                 </div>
         )
     }

@@ -7,7 +7,9 @@ export default function ArticleCard(props) {
             <div className="article-card">
                 <h4>{props.article.title}</h4>
                 <ul>
-                    <li>Topic: {props.article.topic}</li>
+                    <li>Topic:
+                        <Link to={`/topics/${props.article.topic}`}>{props.article.topic}</Link>
+                    </li>
                     <li>Author: {props.article.author}</li>
                     <li>Date: {props.article.created_at}</li>
                     <li>Votes: {props.article.votes}</li>
