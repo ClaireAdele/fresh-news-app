@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import ArticleCard from "../Articles/ArticleCard"
+import React, { Component } from 'react';
 import axios from "axios";
-import loader from "../../imgs/ezgif-7-707ad267e4e0.gif"
+import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
+import ArticleListMaker from "../ArticleListMaker";
 
 
 export default class mostVotes extends Component {
@@ -25,9 +25,7 @@ export default class mostVotes extends Component {
             this.state.isLoading ? <div> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
             <div id="most-recent">
                 <h3 className="mostTitles">Most Popular Articles</h3>
-                {this.state.mostVotes.map((article) => {
-                    return <ArticleCard key={article.article_id} article={article}/>
-                })}
+                <ArticleListMaker articles={this.state.mostVotes} />
             </div>
         )
     }

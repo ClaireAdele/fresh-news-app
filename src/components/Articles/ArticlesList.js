@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import axios from "axios";
-import ArticleCard from "./ArticleCard"
+import ArticleListMaker from "../ArticleListMaker"
 
 export default class ArticlesList extends Component {
     state = {
@@ -21,9 +21,7 @@ export default class ArticlesList extends Component {
                 this.state.isLoading ? <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
                 <div id="articles-flex-container">
                     <h1>Articles List</h1>
-                    {this.state.articles.map((article) => {
-                    return <ArticleCard key={article.article_id} article={article}/>
-                })}
+                <ArticleListMaker articles={this.state.articles}/>
                 </div>
         )
     }
