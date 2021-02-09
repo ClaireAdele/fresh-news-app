@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Homepage path="/" />
         <ArticleList path= "/articles" />
-        <ArticlePage path= "/articles/:article_title" />
+        <ArticlePage path= "/articles/:article_id" />
         <TopicPage path="/topics/:topic" />
       </Router>
     </div>

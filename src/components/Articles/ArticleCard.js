@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from "@reach/router"
 
 export default function ArticleCard(props) {
-    // console.log(props)
     return (
         <div>
             <div className="article-card">
                 <h4>{props.article.title}</h4>
                 <ul>
-                    <li>{props.article.topic}</li>
-                    <li>{props.article.author}</li>
-                    <li>{props.article.created_at}</li>
-                    <li>link to article page</li>
+                    <li>Topic: {props.article.topic}</li>
+                    <li>Author: {props.article.author}</li>
+                    <li>Date: {props.article.created_at}</li>
+                    <li>Votes: {props.article.votes}</li>
+                    <Link to={`/articles/${props.article.article_id}`} >Read full article</Link>
                 </ul>
             </div>
         </div>
