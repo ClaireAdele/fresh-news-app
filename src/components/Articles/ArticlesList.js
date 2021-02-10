@@ -35,8 +35,7 @@ export default class ArticlesList extends Component {
                     <h1>Articles List</h1>
                 <Link to="/articles?sort_by=votes">Most Popular Articles</Link>
                 <Link to="/articles?sort_by=created_at">Most Recent Articles</Link>
-                <Link to="/articles?order=%27desc%27">Older Articles First</Link>
-                <ArticleListMaker articles={this.state.articles}/>
+                <Link to="/articles?order=%27desc%27">Oldest Articles First</Link>
                 <ArticleListMaker articles={this.state.articles}/>
                 </div>
         )

@@ -6,15 +6,15 @@ import ArticleListMaker from "../ArticleListMaker"
 
 export default class TopicPage extends Component {
     state = {
-        topic: {},
         articles: [],
-        isLoading: true
+        isLoading: true,
+        topic: ""
     }
 
     componentDidMount() {
         return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles?topic=${this.props.topic}`).then((response) => {
             const articles = response.data.articles;
-            this.setState({ articles })
+            this.setState({ articles, isLoading: false })
         }).then(() => {
             return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/topics")
         }).then((response) => {
@@ -52,6 +52,7 @@ export default class TopicPage extends Component {
     }
 
     render() {
+        console.log(this.state.topic)
         return (
             this.state.isLoading 
                 ?

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import axios from "axios";
-import { Link } from "@reach/router"
-import CommentsSection from "../Comments/CommentsSection"
+import { Link } from "@reach/router";
+import CommentsSection from "../Comments/CommentsSection";
+import VoteHandlerButton from "../VoteHandlerButton";
 
 export default class ArticlePage extends Component {
     state = {
@@ -31,6 +32,7 @@ export default class ArticlePage extends Component {
                     <li>Comments Number: {this.state.article.comments_count}</li>
                     <li>Topic: <Link to={`/topics/${this.state.article.topic}`}>{this.state.article.topic}</Link></li>
                     <li>Date: {this.state.article.created_at}</li>
+                    <li>Votes: {this.state.article.votes}</li>
                 </ul>
                 <div>
                     <CommentsSection article_id={this.state.article.article_id}/>
