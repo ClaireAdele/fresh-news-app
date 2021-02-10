@@ -11,7 +11,7 @@ export default class mostVotes extends Component {
     }
 
     componentDidMount() {
-        return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/articles?sort_by=votes&order=%22desc%22").then((response) => {
+        return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/articles?sort_by=votes").then((response) => {
             const mostVotes = []
             for(let i = 0; i <= 4; i++) {
                 mostVotes.push(response.data.articles[i]);

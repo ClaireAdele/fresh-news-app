@@ -32,7 +32,7 @@ export default class ArticlePage extends Component {
                     <li>Comments Number: {this.state.article.comments_count}</li>
                     <li>Topic: <Link to={`/topics/${this.state.article.topic}`}>{this.state.article.topic}</Link></li>
                     <li>Date: {this.state.article.created_at}</li>
-                    <li>Votes: {this.state.article.votes}</li>
+                    <li><VoteHandlerButton votes={this.state.article.votes} article_id={this.state.article.article_id} /></li>
                 </ul>
                 <div>
                     <CommentsSection article_id={this.state.article.article_id}/>
