@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VoteHandlerButton from '../VoteHandlerButton'
+import DeleteComment from './DeleteComment';
 
 export default  class CommentCard extends Component {  
     render(){
@@ -15,6 +16,7 @@ export default  class CommentCard extends Component {
         <div className="commentBody">
             <p>{this.props.comment.body}</p>
         </div>
+        <DeleteComment comment_id={this.props.comment.comment_id}/>
         </div>
         )
     }

@@ -9,7 +9,6 @@ export default class PostComment extends Component {
     }
 
     postNewComment = (comment) => {
-        console.log(comment)
         return axios.post(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
             return res;
         }).catch((err) => {
@@ -30,7 +29,6 @@ export default class PostComment extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <form onSubmit={this.handleSubmit}>
                <label>Username: <input type="text" name="username" onChange={this.handleInputChange}/></label>
