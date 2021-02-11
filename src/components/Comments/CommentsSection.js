@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import CommentsListMaker from "../CommentsListMaker"
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
+import PostComment from "./PostComment"
 
 export default class CommentsSection extends Component {
     state = {
@@ -16,6 +17,13 @@ export default class CommentsSection extends Component {
         })
     }
 
+    componentDidUpdate() {
+        axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`).then((response) => {
+        const comments = response.data.comments;
+        this.setState({ comments, isLoading: false })
+        })
+    }
+
     render() {
         return (
             this.state.isLoading 
@@ -24,6 +32,7 @@ export default class CommentsSection extends Component {
             :
             <div className="commentSection">
                 <h3>Comments Section</h3>
+                <PostComment article_id={this.props.article_id}/>
                 <CommentsListMaker comments={this.state.comments}/>
             </div>
         )
