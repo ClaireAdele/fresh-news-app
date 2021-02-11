@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
-import axios from "axios";
+
 
 export default class DeleteComment extends Component {
-    deleteComment = (comment) => {
-        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`).then((res) => {
-            return res.data;
-        }).catch((err) => {
-            console.log(err)
-        })
+    state = {
+        commentToDelete : this.props.comment_id
     }
 
     handleClick() {
-        this.deleteComment(this.props.comment_id).then((res) => {
-            console.log(res);
-        })
+        this.props.deleteComment(this.state.commentToDelete)
     }
 
     render() {

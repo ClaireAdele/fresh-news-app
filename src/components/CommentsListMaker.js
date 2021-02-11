@@ -5,7 +5,7 @@ export default function CommentsListMaker(props) {
     return (
         <div>
               {props.comments.map((comment) => {
-                    return <CommentCard comment={comment}/>
+                    return <CommentCard deleteComment={props.deleteComment}  comment={comment}/>
                 })}
         </div>
     )

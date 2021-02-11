@@ -16,7 +16,7 @@ export default  class CommentCard extends Component {
         <div className="commentBody">
             <p>{this.props.comment.body}</p>
         </div>
-        <DeleteComment comment_id={this.props.comment.comment_id}/>
+        <DeleteComment deleteComment={this.props.deleteComment}  comment_id={this.props.comment.comment_id}/>
         </div>
         )
     }

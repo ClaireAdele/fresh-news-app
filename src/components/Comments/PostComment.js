@@ -8,17 +8,11 @@ export default class PostComment extends Component {
         body: ""
     }
 
-    postNewComment = (comment) => {
-        return axios.post(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
-            return res;
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
+   
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.postNewComment(this.state).then((res) => {
+        this.props.postNewComment(this.state).then((res) => {
             this.setState({res})
         })
     }

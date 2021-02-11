@@ -1,19 +1,91 @@
+
+@media only screen and (max-width: 736px) {
+
+#flex-container-mostProperty {
+    flex-wrap: wrap;
+  }
+
 #navigation {
-  border: 2px solid #FFB5A7;
+  font-family: "Hammersmith One";
+  background-color: #FEC5BB;
+  flex-wrap: wrap;
   position: fixed;
   font-size: medium;
   top: 0; 
   display: flex;
-  justify-content: flex-end;
+  flex-direction: flex-end;
+  align-items: center;
   width: 100%;
   margin: 0px auto;
   left: 0px;
   right: 0px;
+  border-radius: 0px 0px 10px 10px;
+}
+}
+
+html {
+  background-color: #FFE5D9;
+
+}
+
+a:link {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Hammersmith One";
+}
+
+h2 {
+  font-family: "Hammersmith One";
+}
+
+h3 {
+  font-family: "Hammersmith One";
+}
+
+h4 {
+  font-family: "Hammersmith One";
+}
+
+#navigation {
+  font-family: "Hammersmith One";
+  background-color: #FEC5BB;
+  position: fixed;
+  font-size: medium;
+  top: 0; 
+  display: flex;
+  flex-direction: flex-end;
+  align-items: center;
+  width: 100%;
+  margin: 0px auto;
+  left: 0px;
+  right: 0px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .nav-link {
+  border: 2px solid red;
   padding: 10px 10px 10px 10px;
-  margin-right: 5%;
+  margin-right: 2%;
+  color:#646b67;
+  display: flex;
+  align-items: center;
+}
+
+#searchBar {
+  border : 2px solid red;
+  /* padding-left: 10px;
+  padding-right: 10px;
+  display: flex; */
+}
+
+#submitButton {
+  margin-top: 35%;
+}
+
+#searchBar {
+  max-width: fit-content;
 }
 
 #homepage {
@@ -33,31 +105,43 @@
 }
 
 #most-recent {
-  border: 2px solid #FFB5A7;
+  background-color:  #FEC5BB;
   margin: 2% 2% 2% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .article-card {
-  border: 2px solid #FFB5A7;
+  background-color: #E8E8E4;
+  border-radius: 10px 10px 10px 10px;
+  margin: 3% 3% 3% 3%;
   padding: 30px 30px 30px 30px;
 }
 
 #flex-container-mostProperty {
-  margin: 5% 2% 20% 2%;
+  margin: 5% 2% 10% 2%;
   border: 2px solid #FFB5A7;
   display: flex;
   flex-direction: row;
 }
 
+.articles-loader {
+  font-family: "Hammersmith One";
+  font-size: large;
+}
+
 .loader {
   max-width: auto;
   max-height: auto;
+  border-radius: 50%;
 }
 
 #navBar-logo {
   max-width: 15%;
   max-height: auto;
-  margin-right: 53%;
+  margin-right: auto;
 }
 
 #articles-flex-container {
