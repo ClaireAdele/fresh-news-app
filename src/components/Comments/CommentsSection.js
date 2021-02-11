@@ -15,10 +15,14 @@ export default class CommentsSection extends Component {
 
     deleteComment = (comment) => {
         return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`).then((res) => {
-            console.log(res)
-           this.setState((currentState) => {
-           return { commentDeletedSuccess : true }
-           })
+            //I have access to the comment_id here through comment!
+            const deletedComment = this.state.comments.filter((commentObj) => {
+                return commentObj.comment_id === comment;
+            })
+            const newComments = this.state.comments.filter((comment) => {
+                return comment.comment_id !== deletedComment[0].comment_id;
+            })
+           this.setState({ comments : newComments, commentDeletedSuccess : true })
         }).catch((err) => {
             console.log(err)
         })
