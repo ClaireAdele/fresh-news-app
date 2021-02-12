@@ -23,7 +23,7 @@ export default class mostVotes extends Component {
     render() {
         return (
             this.state.isLoading ? <div> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
-            <div id="most-recent">
+            <div id="most-votes">
                 <h3 className="mostTitles">Most Popular Articles</h3>
                 <ArticleListMaker articles={this.state.mostVotes} />
             </div>

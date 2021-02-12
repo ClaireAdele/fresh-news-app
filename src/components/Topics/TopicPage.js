@@ -59,20 +59,24 @@ export default class TopicPage extends Component {
                 :
                 this.state.topic ?
                 <div id="flex-container-topics-page">
+                <div className="titleSection">
                 <h1>List of articles about {this.props.topic}</h1>
                 <h3>
                     <Link to="/topics/cooking"> Cooking ||</Link>
                     <Link to="/topics/football"> Football ||</Link>
                     <Link to="/topics/coding"> Coding ||</Link></h3>
+                </div>
                 <ArticleListMaker articles={this.state.articles} />
                 </div>
                 : 
                 <div id="flex-container-topics-page">
+                <div className="titleSection">
                 <h1>Topics List</h1>
                 <h3>
                     <Link to="/topics/cooking"> Cooking ||</Link>
                     <Link to="/topics/football"> Football ||</Link>
                     <Link to="/topics/coding"> Coding ||</Link></h3>
+                </div>
                 </div>
         )
     }

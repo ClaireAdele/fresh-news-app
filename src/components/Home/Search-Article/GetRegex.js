@@ -19,7 +19,7 @@ export default class GetRegex extends Component {
            
             <form id="searchBar" className="nav-link" onSubmit={this.handleSubmit}>
               <label>Search Article<input id="searchBar" type="text" name="regexpSearch" onChange={this.handleChange}/></label>
-              <Link to={`/search_results/${this.state.regexpSearch}`}><button id="submitButton">Submit</button></Link>
+              <Link to={`/search_results/${this.state.regexpSearch}`}><button className="submitButton">Submit</button></Link>
             </form>
             </div>
         )

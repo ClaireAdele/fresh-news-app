@@ -19,11 +19,9 @@ export default class VoteHandlerButton extends Component {
     render() {
         return (
         <div>
-        <ul>
-        <li>Votes : {this.state.votes}</li>
-        <button onClick={() => {this.handleClick(1)}}>🍍 Fresh! (+1)</button>
-        <button onClick={() => {this.handleClick(-1)}}>☣️ Rotten! (-1)</button>
-        </ul>
+        Votes : {this.state.votes}
+        <button className="voteButton" onClick={() => {this.handleClick(1)}}>🍍 Fresh! (+1)</button>
+        <button className="voteButton" onClick={() => {this.handleClick(-1)}}>☣️ Rotten! (-1)</button>
         </div>
         )
     }

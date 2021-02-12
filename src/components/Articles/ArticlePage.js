@@ -26,19 +26,26 @@ export default class ArticlePage extends Component {
             <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> 
             :
             <div class="display-article">
+
+                <div className="infoBar">
+                <p className="infoItem">Posted by: {this.state.article.author}</p>
+                <p className="infoItem">Topic: <Link to={`/topics/${this.state.article.topic}`}>{this.state.article.topic}</Link></p>
+                <p className="infoItem">Date: {this.state.article.created_at}</p>
+                </div>
+
+                <div className="articleBody">
                 <h1>{this.state.article.title}</h1>
                 <p>{this.state.article.body}</p>
-                <ul>
-                    <li>Author: {this.state.article.author}</li>
-                    <li>Comments Number: {this.state.article.comments_count}</li>
-                    <li>Topic: <Link to={`/topics/${this.state.article.topic}`}>{this.state.article.topic}</Link></li>
-                    <li>Date: {this.state.article.created_at}</li>
+                <ul className="articleInfo">
                     <li><VoteHandlerButton votes={this.state.article.votes} article_id={this.state.article.article_id} /></li>
+                    <li>Comments Number: {this.state.article.comments_count}</li>
                 </ul>
+                </div>
+
                 <div>
                     <CommentsSection loggedIn={this.props.loggedIn} username={this.props.username} article_id={this.state.article.article_id}/>
                 </div>           
-                </div>
+            </div>
         )
     }
 }

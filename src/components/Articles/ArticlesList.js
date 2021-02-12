@@ -32,10 +32,12 @@ export default class ArticlesList extends Component {
         return (
                 this.state.isLoading ? <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
                 <div id="articles-flex-container">
+                    <div className="titleSection">
                     <h1>Articles List</h1>
                 <Link to="/articles?sort_by=votes">Most Popular Articles</Link>
                 <Link to="/articles?sort_by=created_at">Most Recent Articles</Link>
                 <Link to="/articles?order=%27desc%27">Oldest Articles First</Link>
+                    </div>
                 <ArticleListMaker articles={this.state.articles}/>
                 </div>
         )

@@ -22,10 +22,10 @@ export default class PostComment extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className="postComment" onSubmit={this.handleSubmit}>
                <label>Username: <input type="text" name="username" onChange={this.handleInputChange}/></label>
-               <label>Comment: <input type="text" name="body"  onChange={this.handleInputChange}/></label>
-               <button type="submit">Submit</button>
+               <label>Comment: <input id="commentBox" type="text" name="body"  onChange={this.handleInputChange}/></label>
+               <button className="submitButton" type="submit">Submit</button>
             </form >
         )
     }

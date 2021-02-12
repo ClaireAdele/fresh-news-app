@@ -28,6 +28,21 @@
   flex-direction: column;
   align-items: center;
 }
+
+}
+
+/* regular screen dimensions */
+p {
+  font-family: "Noto Sans";
+}
+
+label {
+  font-family: "Noto Sans";
+}
+
+ul {
+  font-family: "Noto Sans";
+  list-style-type: none;
 }
 
 html {
@@ -72,7 +87,7 @@ h4 {
 }
 
 .nav-link {
-  border: 2px solid red;
+  
   padding: 10px 10px 10px 10px;
   margin-right: 2%;
   color:#646b67;
@@ -80,14 +95,7 @@ h4 {
   align-items: center;
 }
 
-#searchBar {
-  border : 2px solid red;
-  /* padding-left: 10px;
-  padding-right: 10px;
-  display: flex; */
-}
-
-#submitButton {
+.submitButton {
   margin-top: 35%;
 }
 
@@ -103,17 +111,24 @@ h4 {
 
 .title-page {
   margin-top: 10%; 
-  border: 2px solid #FFB5A7;
 }
 
 #blurb {
-  border: 2px solid #FFB5A7;
   margin: 2% 10% 2% 10%;
 }
 
 #most-recent {
   background-color:  #FEC5BB;
-  margin: 2% 2% 2% 2%;
+  margin: 2% 1% 2% 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#most-votes {
+  background-color:  #FEC5BB;
+  margin: 2% 1% 2% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,13 +138,13 @@ h4 {
 .article-card {
   background-color: #E8E8E4;
   border-radius: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   margin: 3% 3% 3% 3%;
-  padding: 30px 30px 30px 30px;
+  max-width: 100%;
 }
 
 #flex-container-mostProperty {
   margin: 5% 2% 10% 2%;
-  border: 2px solid #FFB5A7;
   display: flex;
   flex-direction: row;
 }
@@ -152,9 +167,9 @@ h4 {
 }
 
 #articles-flex-container {
+  font-family: "Noto Sans";
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 10%; 
 }
 
@@ -163,34 +178,36 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #FFB5A7;
 }
 
 .display-article {
   margin-top: 10%; 
+  margin-left: 3%;
+  margin-right: 3%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #FFB5A7;
+  text-align: justify;
 }
 
 #flex-container-topics-page {
   margin-top: 10%; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 2px solid #FFB5A7;
 }
 
 .commentSection {
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #FFB5A7;
 }
 
 .commentCard {
-  border: 2px solid #FFB5A7;
+  border: 5px solid #FFB5A7;
+  background-color: #E8E8E4;
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 1%;
 }
 
 #searchPage {
@@ -202,6 +219,43 @@ h4 {
 
 .loginForm {
   margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voteButton {
+  background-color: #fec5bb;
+  margin-left: 2%;
+  border-color:  #fec5bb;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.postComment {
+  margin-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleInfo{
+  margin-right: auto;
+  text-align: left !important;
+}
+
+.infoBar {
+  border-radius: 2px red solid;
+  margin-right: auto;
+  text-align: left !important;
+  display: flex;
+  font-size: small;
+}
+
+.infoItem {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.titleSection {
   display: flex;
   flex-direction: column;
   align-items: center;
