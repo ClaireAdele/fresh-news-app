@@ -12,16 +12,12 @@ export default class CommentsSection extends Component {
     }
 
     deleteComment = (comment) => {
-        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`).then((res) => {
-            const deletedComment = this.state.comments.filter((commentObj) => {
-                return commentObj.comment_id === comment;
-            })
-            const newComments = this.state.comments.filter((comment) => {
-                return comment.comment_id !== deletedComment[0].comment_id;
-            })
-            console.log(newComments)
-           this.setState({ comments : newComments, commentDeletedSuccess : true })
-        }).catch((err) => {
+        const newComments = this.state.comments.filter((commentObj) => {
+            return commentObj.comment_id !== comment;
+        })
+       this.setState({ comments : newComments, commentDeletedSuccess : true })
+       console.log(this.newComments)
+        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`).catch((err) => {
             console.log(err)
         })
     }

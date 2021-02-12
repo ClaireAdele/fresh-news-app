@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from "@reach/router"
 
@@ -15,22 +14,22 @@ export default class LoginHandler extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps !== this.props) {
-             {
-            return this.props.checkUserExists(this.state.username).then((response) => {
-                this.setState({ errorMessage: "", loggedIn : true})
-            }).catch((err) => {
-                this.setState({ errorMessage: "user does not exist in the database" })
-            })
+        if(prevProps.username !== this.props.username) {
+            {
+            this.props.checkUserExists(this.state.username)
+            // .catch((err) => {
+            //     this.setState({ errorMessage: "User does not exist in the database" })
+            // })
         }
     }
 }
 
     render() {
+        console.log(this.props)
         return (
             this.state.errorMessage ?
             <div className="loginForm">
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
                 <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
             </form>
@@ -39,7 +38,7 @@ export default class LoginHandler extends Component {
             :
             this.state.loggedIn ?
             <div className="loginForm">
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
                 <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
                 <p>Login Successful!</p>
@@ -47,7 +46,7 @@ export default class LoginHandler extends Component {
             </div>
             :
             <div className="loginForm">
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
                 <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
             </form>

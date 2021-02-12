@@ -18,8 +18,10 @@ class App extends Component {
 
   checkUserExists = (username) => {
     return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`).then((response) => {
-      this.setState({ username : response.data.user.username, loggedIn : true })
-      console.log(this.state)
+      console.log(response.data.user)
+      // return response.data.user
+    // }).then((response) => {
+      // this.setState({ username : response.username, loggedIn : true })
     })
   }
 
