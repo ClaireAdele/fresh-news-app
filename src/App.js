@@ -1,4 +1,5 @@
 import './App.css';
+import React, { Component } from 'react';
 import { Router } from "@reach/router"
 import Homepage from "./components/Home/Homepage"
 import Navbar from './components/Home/Navbar'
@@ -7,14 +8,28 @@ import ArticlePage from "./components/Articles/ArticlePage";
 import TopicPage from "./components/Topics/TopicPage"
 import SearchPage from "./components/Home/Search-Article/SearchPage"
 import LoginHandler from './components/LoginHandler';
+import axios from "axios";
 
-function App() {
-  return (
+class App extends Component {
+  state = {
+    username : "",
+    loggedIn : false
+  }
+
+  checkUserExists = (username) => {
+    return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`).then((response) => {
+      this.setState({ username : response.data.user.username, loggedIn : true })
+      console.log(this.state)
+    })
+  }
+
+  render(){
+    return (
     <div className="App">
       <Navbar />
       <Router>
         <Homepage path="/" />
-        <LoginHandler path="/login/*" />
+        <LoginHandler path="/login/*" checkUserExists={this.checkUserExists}/>
         <ArticleList path= "/articles" />
         <ArticlePage path= "/articles/:article_id" />
         <TopicPage path="/topics/:topic" />
@@ -22,6 +37,8 @@ function App() {
       </Router>
     </div>
   );
+  }
+  
 }
 
 export default App;

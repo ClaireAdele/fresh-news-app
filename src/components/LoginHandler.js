@@ -17,9 +17,9 @@ export default class LoginHandler extends Component {
     componentDidUpdate(prevProps) {
         if(prevProps !== this.props) {
              {
-            axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${this.state.username}`).then((response) => {
+            return this.props.checkUserExists(this.state.username).then((response) => {
                 this.setState({ errorMessage: "", loggedIn : true})
-            }).catch(() => {
+            }).catch((err) => {
                 this.setState({ errorMessage: "user does not exist in the database" })
             })
         }
