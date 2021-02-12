@@ -6,6 +6,7 @@ import ArticleList from "./components/Articles/ArticlesList";
 import ArticlePage from "./components/Articles/ArticlePage";
 import TopicPage from "./components/Topics/TopicPage"
 import SearchPage from "./components/Home/Search-Article/SearchPage"
+import LoginHandler from './components/LoginHandler';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Router>
         <Homepage path="/" />
+        <LoginHandler path="/login/*" />
         <ArticleList path= "/articles" />
         <ArticlePage path= "/articles/:article_id" />
         <TopicPage path="/topics/:topic" />

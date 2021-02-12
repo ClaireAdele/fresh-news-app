@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import ArticleListMaker from '../../ArticleListMaker';
+import loader from "../../../imgs/ezgif-7-707ad267e4e0.gif";
 
 export default class SearchPage extends Component {
     state = {
@@ -33,9 +34,10 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        console.log(this.state.articles)
         return (
-            <div>
+            this.state.isLoading ? <div> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div> :
+            <div id="searchPage">
+                <h1>Results for keyword "{`${this.props["*"]}`}"</h1>
                 <ArticleListMaker articles={this.state.articles} />
             </div>
         )

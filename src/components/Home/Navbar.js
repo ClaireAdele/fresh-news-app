@@ -8,6 +8,7 @@ export default function Navbar() {
         <div id="navigation">
             <img id="navBar-logo" src={Logo}></img>
             <GetRegex />
+            <Link className="nav-link" to="/login">Login</Link>
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="/articles">Articles</Link>
             <Link className="nav-link" to="/topics/:topics">Topics</Link>
