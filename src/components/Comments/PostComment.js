@@ -8,8 +8,6 @@ export default class PostComment extends Component {
         body: ""
     }
 
-   
-
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.postNewComment(this.state).then((res) => {

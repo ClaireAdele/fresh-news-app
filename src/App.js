@@ -18,20 +18,20 @@ class App extends Component {
 
   checkUserExists = (username) => {
     return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`).then((response) => {
-      console.log(response.data.user)
-      // return response.data.user
-    // }).then((response) => {
-      // this.setState({ username : response.username, loggedIn : true })
+      return response.data.user
+    }).then((response) => {
+      this.setState({ username : response.username, loggedIn : true })
     })
   }
 
   render(){
+    console.log(this.state)
     return (
     <div className="App">
       <Navbar />
       <Router>
         <Homepage path="/" />
-        <LoginHandler path="/login/*" checkUserExists={this.checkUserExists}/>
+        <LoginHandler path="/login" checkUserExists={this.checkUserExists}/>
         <ArticleList path= "/articles" />
         <ArticlePage path= "/articles/:article_id" />
         <TopicPage path="/topics/:topic" />

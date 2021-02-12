@@ -13,42 +13,40 @@ export default class LoginHandler extends Component {
         this.setState({ [name] : value });
     }
 
-    componentDidUpdate(prevProps) {
-        if(prevProps.username !== this.props.username) {
-            {
-            this.props.checkUserExists(this.state.username)
-            // .catch((err) => {
-            //     this.setState({ errorMessage: "User does not exist in the database" })
-            // })
-        }
+    handleSubmit = (event) => {    
+        event.preventDefault()       
+        this.props.checkUserExists(this.state.username).then((response) => {
+            this.setState({ errorMessage: "", loggedIn: true})
+            return response;
+        }).catch(() => {
+                this.setState({ errorMessage: "User does not exist in the database" })
+            })
     }
-}
 
     render() {
-        console.log(this.props)
         return (
             this.state.errorMessage ?
             <div className="loginForm">
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-                <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
+                <button>Submit</button>
             </form>
             <p>{this.state.errorMessage}</p>
             </div>
             :
             this.state.loggedIn ?
             <div className="loginForm">
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-                <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
+               <button>Submit</button>
                 <p>Login Successful!</p>
             </form>
             </div>
             :
             <div className="loginForm">
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-                <Link to={`/login/${this.state.username}`}><button>Submit</button></Link>
+                <button>Submit</button>
             </form>
             </div>
         )
