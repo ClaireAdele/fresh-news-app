@@ -12,17 +12,12 @@ export default class CommentsSection extends Component {
     }
 
     deleteComment = (comment) => {
-        console.log(comment)
-        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`).then((res) => {
-            console.log(comment)
-            const deletedComment = this.state.comments.filter((commentObj) => {
-                return commentObj.comment_id === comment;
-            })
-            const newComments = this.state.comments.filter((comment) => {
-                return comment.comment_id !== deletedComment[0].comment_id;
-            })
-           this.setState({ comments : newComments, commentDeletedSuccess : true })
-        }).catch((err) => {
+        const newComments = this.state.comments.filter((commentObj) => {
+            return commentObj.comment_id !== comment;
+        })
+        this.setState({ comments : newComments, commentDeletedSuccess : true })
+        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`)               
+        .catch((err) => {
             console.log(err)
         })
     }
@@ -45,24 +40,32 @@ export default class CommentsSection extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             this.state.isLoading 
             ? 
             <div class="articles-loader"> <img class="loader" src={loader} alt="loading..." /> <p>Fresh News Incoming!</p> </div>
             :
+            this.props.loggedIn ?
             this.state.commentDeletedSuccess ? 
             <div className="commentSection">
                 <h3>Comments Section</h3>
                 <p>Comment Deleted!</p>
                 <PostComment postNewComment={this.postNewComment} article_id={this.props.article_id}/>
-                <CommentsListMaker deleteComment={this.deleteComment} comments={this.state.comments}/>
+                <CommentsListMaker loggedIn={this.props.loggedIn} username={this.props.username} deleteComment={this.deleteComment} comments={this.state.comments}/>
             </div>
             :
             <div className="commentSection">
                 <h3>Comments Section</h3>
                 <PostComment postNewComment={this.postNewComment} article_id={this.props.article_id}/>
-                <CommentsListMaker deleteComment={this.deleteComment} comments={this.state.comments}/>
+                <CommentsListMaker loggedIn={this.props.loggedIn} username={this.props.username} deleteComment={this.deleteComment} comments={this.state.comments}/>
             </div>
+            :
+            <div className="commentSection">
+                <h3>Comments Section</h3>
+                <CommentsListMaker loggedIn={this.props.loggedIn} username={this.props.username} deleteComment={this.deleteComment} comments={this.state.comments}/>
+            </div>
+
         )
     }
 }

@@ -33,7 +33,7 @@ class App extends Component {
         <Homepage path="/" />
         <LoginHandler path="/login" checkUserExists={this.checkUserExists}/>
         <ArticleList path= "/articles" />
-        <ArticlePage path= "/articles/:article_id" />
+        <ArticlePage path= "/articles/:article_id" loggedIn={this.state.loggedIn} username={this.state.username}/>
         <TopicPage path="/topics/:topic" />
         <SearchPage path="/search_results/*" />
       </Router>

@@ -19,6 +19,7 @@ export default class ArticlePage extends Component {
     }
     
     render() {
+        console.log(this.props)
         return (
             this.state.isLoading 
             ? 
@@ -35,7 +36,7 @@ export default class ArticlePage extends Component {
                     <li><VoteHandlerButton votes={this.state.article.votes} article_id={this.state.article.article_id} /></li>
                 </ul>
                 <div>
-                    <CommentsSection article_id={this.state.article.article_id}/>
+                    <CommentsSection loggedIn={this.props.loggedIn} username={this.props.username} article_id={this.state.article.article_id}/>
                 </div>           
                 </div>
         )

@@ -52,7 +52,6 @@ export default class TopicPage extends Component {
     }
 
     render() {
-        console.log(this.state.topic)
         return (
             this.state.isLoading 
                 ?
