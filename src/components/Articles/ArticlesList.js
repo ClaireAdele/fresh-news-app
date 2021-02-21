@@ -21,6 +21,7 @@ export default class ArticlesList extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props){
             const sort = this.props.location.search;
+            console.log(sort)
             getAllArticles(sort).then((articles) => {
                 this.setState({ articles, isLoading : false})
             })

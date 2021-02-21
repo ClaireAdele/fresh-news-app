@@ -1,8 +1,8 @@
 import React from 'react'
 import Title from "./Title"
 import Blurb from "./Blurb"
-import MostRecent from "./MostRecent"
-import MostVotes from './MostVotes'
+import MostArticles from "./MostArticles"
+
 
 export default function Homepage() {
     return (
@@ -10,8 +10,8 @@ export default function Homepage() {
             <Title />
             <Blurb />
             <div id="flex-container-mostProperty">
-            <MostRecent />
-            <MostVotes />
+            <MostArticles />
+            <MostArticles votes ={"?sort_by=votes"} />
             </div>
         </div>
     )

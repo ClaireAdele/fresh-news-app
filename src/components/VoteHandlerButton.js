@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from "axios";
+import { patchVotes } from './api-methods';
 
 export default class VoteHandlerButton extends Component {
     state = {
@@ -10,10 +10,9 @@ export default class VoteHandlerButton extends Component {
         this.setState((currentState) => {
             return {votes : currentState.votes+= number}
         })
-        this.props.comment_id ?
-        axios.patch(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments/${this.props.comment_id}`, {inc_votes : number})
-        : 
-        axios.patch(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}`, {inc_votes : number})
+        const article_id = this.props.article_id;
+        const comment_id = this.props.comment_id;
+        patchVotes(article_id, comment_id, number)
     }
 
     render() {
