@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
-import axios from "axios";
+import { getArticle } from "../api-methods";
 import { Link } from "@reach/router";
 import CommentsSection from "../Comments/CommentsSection";
 import VoteHandlerButton from "../VoteHandlerButton";
@@ -12,10 +12,9 @@ export default class ArticlePage extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}`).then((response) => {
-            const article = response.data.article;
+        getArticle(this.props.article_id).then((article) => {
             this.setState({ article, isLoading : false })
-        })
+        });
     }
     
     render() {

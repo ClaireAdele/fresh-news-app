@@ -12,20 +12,15 @@ import axios from "axios";
 
 class App extends Component {
   state = {
-    username : "",
-    loggedIn : false
+    username : localStorage.getItem("username"),
+    loggedIn : localStorage.getItem("loggedIn")
   }
 
   checkUserExists = (username) => {
-    return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`).then((response) => {
-      return response.data.user
-    }).then((response) => {
-      this.setState({ username : response.username, loggedIn : true })
-    })
+    return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`)
   }
 
   render(){
-    console.log(this.state)
     return (
     <div className="App">
       <Navbar />

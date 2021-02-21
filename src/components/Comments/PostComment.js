@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 export default class PostComment extends Component {
     
     state = {
-        username : "",
+        username : this.props.username,
         body: ""
     }
 
@@ -23,8 +23,7 @@ export default class PostComment extends Component {
     render() {
         return (
             <form className="postComment" onSubmit={this.handleSubmit}>
-               <label>Username: <input type="text" name="username" onChange={this.handleInputChange}/></label>
-               <label>Comment: <input id="commentBox" type="text" name="body"  onChange={this.handleInputChange}/></label>
+               <label>Comment: <textarea id="commentBox" type="text" name="body"  onChange={this.handleInputChange}/></label>
                <button className="submitButton" type="submit">Submit</button>
             </form >
         )

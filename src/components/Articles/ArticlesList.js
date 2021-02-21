@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import axios from "axios";
-import ArticleListMaker from "../ArticleListMaker"
-import { Link } from "@reach/router"
+import ArticleListMaker from "../ArticleListMaker";
+import { Link } from "@reach/router";
+import { getAllArticles } from "../api-methods.js"
+
 
 export default class ArticlesList extends Component {
     state = {
@@ -11,8 +13,7 @@ export default class ArticlesList extends Component {
     }
 
     componentDidMount() {
-        return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/articles").then((response) => {
-            const articles = response.data.articles;
+        getAllArticles().then((articles) => {
             this.setState({ articles, isLoading : false})
         })
     }
@@ -20,9 +21,7 @@ export default class ArticlesList extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props){
             const sort = this.props.location.search;
-            console.log(sort)
-            return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles${sort}`).then((response) => {
-                const articles = response.data.articles;
+            getAllArticles(sort).then((articles) => {
                 this.setState({ articles, isLoading : false})
             })
         }

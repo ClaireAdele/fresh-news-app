@@ -16,6 +16,8 @@ export default class LoginHandler extends Component {
     handleSubmit = (event) => {    
         event.preventDefault()       
         this.props.checkUserExists(this.state.username).then((response) => {
+            localStorage.setItem("username", this.state.username);
+            localStorage.setItem("loggedIn", "true");
             this.setState({ errorMessage: "", loggedIn: true})
             return response;
         }).catch(() => {

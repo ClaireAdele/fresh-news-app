@@ -3,9 +3,11 @@
 
 #flex-container-mostProperty {
     flex-wrap: wrap;
+    border: red solid 2px;
   }
 
 #navigation {
+  border: red solid 2px;
   font-family: "Hammersmith One";
   background-color: #FEC5BB;
   flex-wrap: wrap;
@@ -27,6 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: red solid 2px;
 }
 
 }
@@ -71,6 +74,7 @@ h4 {
 }
 
 #navigation {
+  border: red solid 2px;
   font-family: "Hammersmith One";
   background-color: #FEC5BB;
   position: fixed;
@@ -87,7 +91,7 @@ h4 {
 }
 
 .nav-link {
-  
+  border: red solid 2px;  
   padding: 10px 10px 10px 10px;
   margin-right: 2%;
   color:#646b67;
@@ -96,28 +100,34 @@ h4 {
 }
 
 .submitButton {
+  border: red solid 2px;
   margin-top: 35%;
 }
 
 #searchBar {
+  border: red solid 2px;
   max-width: fit-content;
 }
 
 #homepage {
+  border: red solid 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .title-page {
+  border: red solid 2px;
   margin-top: 10%; 
 }
 
 #blurb {
+  border: red solid 2px;
   margin: 2% 10% 2% 10%;
 }
 
 #most-recent {
+  border: red solid 2px;
   background-color:  #FEC5BB;
   margin: 2% 1% 2% 2%;
   display: flex;
@@ -127,6 +137,7 @@ h4 {
 }
 
 #most-votes {
+  border: red solid 2px;
   background-color:  #FEC5BB;
   margin: 2% 1% 2% 2%;
   display: flex;
@@ -136,6 +147,7 @@ h4 {
 }
 
 .article-card {
+  border: red solid 2px;
   background-color: #E8E8E4;
   border-radius: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
@@ -144,29 +156,34 @@ h4 {
 }
 
 #flex-container-mostProperty {
+  border: red solid 2px;
   margin: 5% 2% 10% 2%;
   display: flex;
   flex-direction: row;
 }
 
 .articles-loader {
+  border: red solid 2px;
   font-family: "Hammersmith One";
   font-size: large;
 }
 
 .loader {
+  border: red solid 2px;
   max-width: auto;
   max-height: auto;
   border-radius: 50%;
 }
 
 #navBar-logo {
+  border: red solid 2px;
   max-width: 15%;
   max-height: auto;
   margin-right: auto;
 }
 
 #articles-flex-container {
+  border: red solid 2px;
   font-family: "Noto Sans";
   display: flex;
   flex-direction: column;
@@ -174,6 +191,7 @@ h4 {
 }
 
 .articles-loader {
+  border: red solid 2px;
   margin-top: 10%; 
   display: flex;
   flex-direction: column;
@@ -181,6 +199,7 @@ h4 {
 }
 
 .display-article {
+  border: red solid 2px;
   margin-top: 10%; 
   margin-left: 3%;
   margin-right: 3%;
@@ -191,12 +210,14 @@ h4 {
 }
 
 #flex-container-topics-page {
+  border: red solid 2px;
   margin-top: 10%; 
   display: flex;
   flex-direction: column;
 }
 
 .commentSection {
+  border: red solid 2px;
   margin-top: 5%;
   display: flex;
   flex-direction: column;
@@ -211,6 +232,7 @@ h4 {
 }
 
 #searchPage {
+  border: red solid 2px;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
@@ -218,6 +240,7 @@ h4 {
 }
 
 .loginForm {
+  border: red solid 2px;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
@@ -232,12 +255,14 @@ h4 {
 }
 
 .postComment {
+  border: red solid 2px;
   margin-bottom: 3%;
   display: flex;
   flex-direction: column;
 }
 
 .articleInfo{
+  border: red solid 2px;
   margin-right: auto;
   text-align: left !important;
 }
@@ -251,11 +276,13 @@ h4 {
 }
 
 .infoItem {
+  border: red solid 2px;
   margin-left: 1%;
   margin-right: 1%;
 }
 
 .titleSection {
+  border: red solid 2px;
   display: flex;
   flex-direction: column;
   align-items: center;

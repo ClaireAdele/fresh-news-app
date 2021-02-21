@@ -12,7 +12,7 @@ export default class DeleteComment extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>❌ Delete Comment</button>
+            <button onClick={() => {this.handleClick()}}>❌ Delete Comment</button>
         )
     }
 }

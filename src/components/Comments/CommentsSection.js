@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from "axios";
 import CommentsListMaker from "../CommentsListMaker"
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
-import PostComment from "./PostComment"
+import PostComment from "./PostComment";
+import { deleteCommentAPI, postNewComment } from "../api-methods";
 
 export default class CommentsSection extends Component {
     state = {
@@ -12,20 +13,21 @@ export default class CommentsSection extends Component {
     }
 
     deleteComment = (comment) => {
-        const newComments = this.state.comments.filter((commentObj) => {
-            return commentObj.comment_id !== comment;
-        })
-        this.setState({ comments : newComments, commentDeletedSuccess : true })
-        return axios.delete(`https://claire-castanet-nc-news.herokuapp.com/api/comments/${comment}`)               
+        deleteCommentAPI(comment).then(() => {
+            const newComments = this.state.comments.filter((commentObj) => {
+                return commentObj.comment_id !== comment;
+            })
+            this.setState({ comments : newComments, commentDeletedSuccess : true })
+        })             
         .catch((err) => {
             console.log(err)
         })
     }
 
     postNewComment = (comment) => {
-        return axios.post(`https://claire-castanet-nc-news.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
-            return res;
-        }).then((res) => {
+        let article_id = this.props.article_id;
+        console.log(comment)
+        return postNewComment(article_id, comment).then((res) => {
             this.setState((currentState) => {
                 return {comments : [ res.data.comment ,...currentState.comments] }
             })
@@ -40,7 +42,6 @@ export default class CommentsSection extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             this.state.isLoading 
             ? 
@@ -51,13 +52,13 @@ export default class CommentsSection extends Component {
             <div className="commentSection">
                 <h3>Comments Section</h3>
                 <p>Comment Deleted!</p>
-                <PostComment postNewComment={this.postNewComment} article_id={this.props.article_id}/>
+                <PostComment postNewComment={this.postNewComment} username={this.props.username} article_id={this.props.article_id}/>
                 <CommentsListMaker loggedIn={this.props.loggedIn} username={this.props.username} deleteComment={this.deleteComment} comments={this.state.comments}/>
             </div>
             :
             <div className="commentSection">
                 <h3>Comments Section</h3>
-                <PostComment postNewComment={this.postNewComment} article_id={this.props.article_id}/>
+                <PostComment postNewComment={this.postNewComment}  username={this.props.username} article_id={this.props.article_id}/>
                 <CommentsListMaker loggedIn={this.props.loggedIn} username={this.props.username} deleteComment={this.deleteComment} comments={this.state.comments}/>
             </div>
             :
