@@ -1,0 +1,7 @@
+#articles-flex-container {
+    border: red solid 2px;
+    font-family: "Noto Sans";
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%; 
+  }

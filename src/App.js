@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Component } from 'react';
 import { Router } from "@reach/router"
 import Homepage from "./components/Home/Homepage"
@@ -8,7 +7,10 @@ import ArticlePage from "./components/Articles/ArticlePage";
 import TopicPage from "./components/Topics/TopicPage"
 import SearchPage from "./components/Home/Search-Article/SearchPage"
 import LoginHandler from './components/LoginHandler';
+import { getUser } from "./components/api-methods";
+import "./App.css"
 import axios from "axios";
+
 
 class App extends Component {
   state = {
@@ -17,7 +19,7 @@ class App extends Component {
   }
 
   checkUserExists = (username) => {
-    return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/users/${username}`)
+      getUser(username)
   }
 
   render(){

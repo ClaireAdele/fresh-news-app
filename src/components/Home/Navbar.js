@@ -1,7 +1,8 @@
-import React from 'react'
-import { Link } from "@reach/router"
-import Logo from "../../imgs/happy-fruit.jpg"
-import GetRegex from "./Search-Article/GetRegex"
+import React from 'react';
+import { Link } from "@reach/router";
+import Logo from "../../imgs/happy-fruit.jpg";
+import GetRegex from "./Search-Article/GetRegex";
+import "./Navbar.css";
 
 export default function Navbar() {
     return (

@@ -3,6 +3,7 @@ import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import axios from "axios";
 import { Link } from "@reach/router"
 import ArticleListMaker from "../ArticleListMaker"
+import { getAllArticles } from '../api-methods';
 
 export default class TopicPage extends Component {
     state = {
@@ -12,9 +13,9 @@ export default class TopicPage extends Component {
     }
 
     componentDidMount() {
-        return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles?topic=${this.props.topic}`).then((response) => {
-            const articles = response.data.articles;
-            this.setState({ articles, isLoading: false })
+        getAllArticles(null, this.props.topic).then((articles) => {
+            console.log(articles)
+            this.setState({ articles })
         }).then(() => {
             return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/topics")
         }).then((response) => {
@@ -32,8 +33,7 @@ export default class TopicPage extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.topic !== this.props.topic) {
-            return axios.get(`https://claire-castanet-nc-news.herokuapp.com/api/articles?topic=${this.props.topic}`).then((response) => {
-                const articles = response.data.articles;
+            getAllArticles(null, this.props.topic).then((articles) => {
                 this.setState({ articles })
             }).then(() => {
                 return axios.get("https://claire-castanet-nc-news.herokuapp.com/api/topics")

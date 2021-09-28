@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "@reach/router"
+import { Link } from "@reach/router";
+import './LoginHandler.css';
 
 export default class LoginHandler extends Component {
     state = {

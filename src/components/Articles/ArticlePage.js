@@ -4,6 +4,7 @@ import { getArticle } from "../api-methods";
 import { Link } from "@reach/router";
 import CommentsSection from "../Comments/CommentsSection";
 import VoteHandlerButton from "../VoteHandlerButton";
+import "./ArticlePage.css";
 
 export default class ArticlePage extends Component {
     state = {
@@ -18,7 +19,6 @@ export default class ArticlePage extends Component {
     }
     
     render() {
-        console.log(this.props)
         return (
             this.state.isLoading 
             ? 
@@ -37,7 +37,7 @@ export default class ArticlePage extends Component {
                 <p>{this.state.article.body}</p>
                 <ul className="articleInfo">
                     <li><VoteHandlerButton votes={this.state.article.votes} article_id={this.state.article.article_id} /></li>
-                    <li>Comments Number: {this.state.article.comments_count}</li>
+                    <li>{this.state.article.comments_count} comments</li>
                 </ul>
                 </div>
 

@@ -1,0 +1,38 @@
+  .display-article {
+    margin-top: 15%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+  }
+
+  .articleInfo {
+    margin-top: 5%;
+  }
+  
+  .infoBar {
+    margin-right: auto;
+    text-align: left !important;
+    display: flex;
+    font-size: small;
+  }
+  
+  .infoItem {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  
+  .titleSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    font-family: "Noto Sans";
+    font-size: medium;
+  }
+  
+  .categoryFilter:hover {
+    font-size: x-large;
+  } 

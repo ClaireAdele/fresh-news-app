@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { patchVotes } from './api-methods';
+import "./VoteHandlerButton.css";
 
 export default class VoteHandlerButton extends Component {
     state = {
@@ -18,7 +19,7 @@ export default class VoteHandlerButton extends Component {
     render() {
         return (
         <div>
-        Votes : {this.state.votes}
+        {this.state.votes} votes
         <button className="voteButton" onClick={() => {this.handleClick(1)}}>🍍 Fresh! (+1)</button>
         <button className="voteButton" onClick={() => {this.handleClick(-1)}}>☣️ Rotten! (-1)</button>
         </div>

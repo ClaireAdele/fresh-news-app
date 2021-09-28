@@ -4,6 +4,7 @@ import CommentsListMaker from "../CommentsListMaker"
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
 import PostComment from "./PostComment";
 import { deleteCommentAPI, postNewComment } from "../api-methods";
+import "./CommentSection.css";
 
 export default class CommentsSection extends Component {
     state = {

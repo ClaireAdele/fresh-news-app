@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import VoteHandlerButton from '../VoteHandlerButton'
+import VoteHandlerButton from '../VoteHandlerButton';
 import DeleteComment from './DeleteComment';
+import "./CommentCard.css";
 
 export default  class CommentCard extends Component {  
     render() {

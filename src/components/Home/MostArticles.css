@@ -1,0 +1,15 @@
+.most-articles {
+    background-color:  #F9DCC4;
+    margin: 2% 2% 2% 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  #flex-container-mostProperty {
+    background-color: white;
+    margin: 15% 2% 10% 2%;
+    display: flex;
+    flex-direction: row;
+  }

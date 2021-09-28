@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import loader from "../../imgs/ezgif-7-707ad267e4e0.gif";
-import axios from "axios";
 import ArticleListMaker from "../ArticleListMaker";
 import { Link } from "@reach/router";
 import { getAllArticles } from "../api-methods.js"
@@ -21,6 +20,7 @@ export default class ArticlesList extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props){
             const sort = this.props.location.search;
+            console.log(this.props)
             console.log(sort)
             getAllArticles(sort).then((articles) => {
                 this.setState({ articles, isLoading : false})
@@ -34,9 +34,9 @@ export default class ArticlesList extends Component {
                 <div id="articles-flex-container">
                     <div className="titleSection">
                     <h1>Articles List</h1>
-                <Link to="/articles?sort_by=votes">Most Popular Articles</Link>
-                <Link to="/articles?sort_by=created_at">Most Recent Articles</Link>
-                <Link to="/articles?order=%27desc%27">Oldest Articles First</Link>
+                <Link class="categoryFilter" to="/articles?sort_by=votes">Most Popular Articles</Link>
+                <Link class="categoryFilter" to="/articles?sort_by=created_at">Most Recent Articles</Link>
+                <Link class="categoryFilter" to="/articles?order=%27desc%27">Oldest Articles First</Link>
                     </div>
                 <ArticleListMaker articles={this.state.articles}/>
                 </div>
