@@ -1,0 +1,7 @@
+#searchPage {
+    margin-top: 30%;
+    margin-bottom: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
