@@ -7,7 +7,16 @@
 
 .postComment {
     margin-bottom: 3%;
+    padding-left: 40px;
+    padding-right: 40px;
     display: flex;
     flex-direction: column;
 }
-  
+
+#commentBox {
+    padding-bottom: 75%;
+}
+
+#submitCommentButton {
+    margin: 3% 20% 0% 20%;
+}
