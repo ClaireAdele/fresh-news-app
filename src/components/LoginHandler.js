@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "@reach/router";
+import { getUser } from './api-methods';
 import './LoginHandler.css';
 
 export default class LoginHandler extends Component {
@@ -16,7 +16,7 @@ export default class LoginHandler extends Component {
 
     handleSubmit = (event) => {    
         event.preventDefault()       
-        this.props.checkUserExists(this.state.username).then((response) => {
+        getUser(this.state.username).then((response) => {
             localStorage.setItem("username", this.state.username);
             localStorage.setItem("loggedIn", "true");
             this.setState({ errorMessage: "", loggedIn: true})
@@ -31,25 +31,26 @@ export default class LoginHandler extends Component {
             this.state.errorMessage ?
             <div className="loginForm">
             <form onSubmit={this.handleSubmit}>
-                <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-                <button>Submit</button>
+                <input class="inputUsername" type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
+                <button class="signIn">Sign-In</button>
             </form>
             <p>{this.state.errorMessage}</p>
             </div>
             :
             this.state.loggedIn ?
+            //here I need to add a log out button instead
             <div className="loginForm">
             <form onSubmit={this.handleSubmit}>
-                <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-               <button>Submit</button>
+                <input class="inputUsername" type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
+                <button class="signIn">Sign-In</button>
                 <p>Login Successful!</p>
             </form>
             </div>
             :
             <div className="loginForm">
             <form onSubmit={this.handleSubmit}>
-                <label>Username<input type="text" name="username" onChange={this.handleChange}/></label>
-                <button>Submit</button>
+                <input class="inputUsername" type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
+                <button class="signIn">Sign-In</button>
             </form>
             </div>
         )
